@@ -1,0 +1,51 @@
+<% layout("./layout/boilerplate.ejs") %>
+<body>
+  <div class="container d-flex justify-content-center mt-5">
+    <div class="card" style="width: 40rem">
+      <div class="text-center">
+        <h3 style="background-color: white">Listing Detail</h3>
+      </div>
+      <img
+        src="<%= listing.image %>"
+        class="card-img-top"
+        alt="Image"
+        style="opacity: 1"
+      />
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Title:</strong> <%= listing.title %>
+          </li>
+          <li class="list-group-item">
+            <strong>Description:</strong> <%= listing.description %>
+          </li>
+          <li class="list-group-item">
+            <strong>Price:</strong> &#8377;<%=
+            listing.price.toLocaleString("en-IN") %>
+          </li>
+          <li class="list-group-item">
+            <strong>Location:</strong> <%= listing.location %>
+          </li>
+          <li class="list-group-item">
+            <strong>Country:</strong> <%= listing.country %>
+          </li>
+        </ul>
+        <div class="d-flex mt-3">
+          <form
+            method="post"
+            action="http://localhost:8080/listing/<%= listing._id %>?_method=DELETE"
+            style="margin-right: 0.5rem"
+          >
+            <button class="btn btn-danger">Delete</button>
+          </form>
+          <a
+            href="http://localhost:8080/listing/<%= listing._id %>/edit"
+            class="btn btn-dark"
+            style="color: white; margin-left: 0.5rem"
+            >Edit</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
