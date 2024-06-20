@@ -13,10 +13,14 @@ const listingSchema = mongoose.Schema({
     type: String,
     default:
       "https://foyr.com/learn/wp-content/uploads/2019/03/Villa_Mistral-Singapore.jpg",
-    // set: (v) => {
-    //   return v === ""
-    //     ? "https://foyr.com/learn/wp-content/uploads/2019/03/Villa_Mistral-Singapore.jpg"
-    //     : v;
+    set: function (v) {
+      if (typeof v === "object" && v !== null && v.url) {
+        return v.url;
+      }
+      return v === ""
+        ? "https://foyr.com/learn/wp-content/uploads/2019/03/Villa_Mistral-Singapore.jpg"
+        : v;
+    },
   },
   price: {
     type: Number,

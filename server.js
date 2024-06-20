@@ -29,6 +29,10 @@ async function main() {
 }
 
 let port = 8080;
+app.use((req, res, next) => {
+  console.log(req.path, req.method);
+  next();
+});
 
 app.listen(port, () => {
   console.log(`listening to port ${port}`);
