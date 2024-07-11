@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const { Review } = require("./review");
+const User = require("./user");
 
 const listingSchema = mongoose.Schema({
   title: {
@@ -7,20 +9,10 @@ const listingSchema = mongoose.Schema({
   },
   description: {
     type: String,
-    required: true,
   },
   image: {
-    type: String,
-    default:
-      "https://foyr.com/learn/wp-content/uploads/2019/03/Villa_Mistral-Singapore.jpg",
-    set: function (v) {
-      if (typeof v === "object" && v !== null && v.url) {
-        return v.url;
-      }
-      return v === ""
-        ? "https://foyr.com/learn/wp-content/uploads/2019/03/Villa_Mistral-Singapore.jpg"
-        : v;
-    },
+    url: String,
+    filename: String,
   },
   price: {
     type: Number,
@@ -34,6 +26,32 @@ const listingSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  Review: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Review",
+    },
+  ],
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+  geometry: {
+    type: {
+      type: String,
+      enum: ["Point"],
+
+      required: true,
+    },
+    coordinates: {
+      type: [Number],
+      required: true,
+    },
+  },
+});
+
+listingSchema.post("findOneAndDelete", async (listing) => {
+  await Review.deleteMany({ _id: { $in: listing.Review } });
 });
 
 let Listing = mongoose.model("Listing", listingSchema);

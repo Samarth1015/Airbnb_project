@@ -12,4 +12,12 @@ main()
 async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
 }
-Listing.insertMany(initData.data);
+addToDb = async () => {
+  await Listing.deleteMany({});
+  initData.data = initData.data.map((obj) => ({
+    ...obj,
+    owner: "6687ce4bba44a4927bd77141",
+  }));
+  await Listing.insertMany(initData.data);
+};
+addToDb();

@@ -2,7 +2,13 @@
 <body>
   <div class="col-8 offset-3">
     <h2>New Entry</h2>
-    <form method="post" action="http://localhost:8080/listing">
+    <form
+      method="post"
+      action="http://localhost:8080/listing"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
       <div class="mb-3">
         <label class="form-label" for="title">title:</label>
         <input
@@ -10,24 +16,27 @@
           type="text"
           name="listing[title]"
           placeholder="write your title"
+          required
         />
+        <div class="valid-feedback">Your tile looks good!</div>
       </div>
       <br /><br />
       <div class="mb-3">
         <label class="form-label" for="description">description:</label>
-        <input
+        <textarea
           class="form-control"
           type="text"
           name="listing[description]"
           placeholder="write your description"
-        />
+          required
+        ></textarea>
       </div>
       <br /><br />
       <div class="mb-3">
-        <label class="form-label" for="description">image url:</label>
+        <label class="form-label" for="description">Image: </label>
         <input
           class="form-control"
-          type="text"
+          type="file"
           name="listing[image]"
           placeholder="write your url"
         />
@@ -37,9 +46,9 @@
         <label class="form-label" for="price">price:</label>
         <input
           class="form-control"
-          type="number"
           name="listing[price]"
           placeholder="write your price"
+          required
         />
       </div>
       <br /><br />
@@ -50,6 +59,7 @@
           type="text"
           name="listing[location]"
           placeholder="write your location"
+          required
         />
       </div>
       <br /><br />
@@ -60,8 +70,16 @@
           type="text"
           name="listing[country]"
           placeholder="write your country"
+          required
         />
       </div>
+      <input
+        name="listing[owner]"
+        style="visibility: hidden"
+        type="text"
+        value="<%= user_id %>"
+      />
+
       <br />
       <button class="btn btn-outline-danger">submit</button>
     </form>

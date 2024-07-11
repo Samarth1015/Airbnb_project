@@ -5,6 +5,7 @@
       method="post"
       action="http://localhost:8080/listing/<%= user._id %>?_method=PATCH"
       class="needs-validation"
+      enctype="multipart/form-data"
       novalidate
     >
       <div class="mb-3">
@@ -17,6 +18,7 @@
           value="<%= user.title %>"
           required
         />
+        <div class="valid-feedback">Your tile looks good!</div>
       </div>
       <div class="mb-3">
         <label for="description" class="form-label">Description:</label>
@@ -29,6 +31,22 @@
         >
 <%= user.description %></textarea
         >
+        <div class="invalid-feedback">Write your description</div>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Original Image:</label><br />
+        <img src="<%= originalImageUrl %>" alt="" />
+        <div class="invalid-feedback">upload your image!</div>
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Update Image:</label>
+        <input
+          type="file"
+          class="form-control"
+          id="image"
+          name="listing[image]"
+        />
+        <div class="invalid-feedback">upload your image!</div>
       </div>
       <div class="mb-3">
         <label for="price" class="form-label">Price:</label>
@@ -37,9 +55,10 @@
           class="form-control"
           id="price"
           name="listing[price]"
-          value="<%= user.price %>"
+          value="<%= user.price%>"
           required
         />
+        <div class="invalid-feedback">Write correct price!</div>
       </div>
       <div class="mb-3">
         <label for="location" class="form-label">Location:</label>
@@ -51,6 +70,7 @@
           value="<%= user.location %>"
           required
         />
+        <div class="invalid-feedback">Write correct location</div>
       </div>
       <div class="mb-3">
         <label for="country" class="form-label">Country:</label>
@@ -62,6 +82,7 @@
           value="<%= user.country %>"
           required
         />
+        <div class="invalid-feedback">Write your country!</div>
       </div>
       <button type="submit" class="btn btn-black">Submit</button>
     </form>

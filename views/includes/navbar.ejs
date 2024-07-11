@@ -1,8 +1,20 @@
+<style>
+  .btn {
+    background-color: red;
+    color: white;
+    border: 0px solid black;
+  }
+  .btn:hover {
+    background-color: white;
+    color: black;
+  }
+</style>
+
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="http://localhost:8080/"
-      ><i class="fa-solid fa-wand-sparkles"></i
-    ></a>
+    <a class="navbar-brand" href="http://localhost:8080/">
+      <i class="fa-solid fa-wand-sparkles"></i>
+    </a>
     <button
       class="navbar-toggler"
       type="button"
@@ -16,16 +28,47 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a
-          class="nav-link active"
-          aria-current="page"
-          href="http://localhost:8080/"
-          >Home</a
-        >
-        <a class="nav-link" href="http://localhost:8080/listing">All listing</a>
+        <a class="nav-link" href="http://localhost:8080/listing">Explore</a>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <form class="d-flex" role="search">
+          <input
+            style="border-radius: 1rem"
+            class="form-control me-2"
+            type="search"
+            placeholder="Search your destination"
+            aria-label="Search"
+          />
+          <button
+            class="btn btn-outline-success"
+            style="width: 9rem; border-radius: 1rem"
+            type="submit"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i> Search
+          </button>
+        </form>
+      </div>
+      <div class="navbar-nav ms-auto">
         <a class="nav-link" href="http://localhost:8080/listing/new"
-          >Add New Listing</a
+          >Airbnb your home</a
         >
+        <% if(!user) { %>
+        <b
+          ><a
+            class="nav-link active"
+            aria-current="page"
+            href="http://localhost:8080/signup"
+            >SignUp</a
+          ></b
+        >
+        <b>
+          <a class="nav-link" href="http://localhost:8080/login">SignIn</a></b
+        >
+        <% } %> <% if(user) { %>
+        <b
+          ><a class="nav-link" href="http://localhost:8080/logout">Logout</a></b
+        >
+        <% } %>
       </div>
     </div>
   </div>
