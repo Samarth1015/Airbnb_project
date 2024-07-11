@@ -98,9 +98,9 @@ app.listen(port, () => {
 app.use("/", user);
 app.use("/listing", listing);
 app.use("/listing/:id/review", review);
-// app.all("*", (req, res, next) => {
-//   next(new expressError(404, "page not found"));
-// });
+app.all("*", (req, res, next) => {
+  res.redirect("/listing");
+});
 app.use((err, req, res, next) => {
   let { status = 500, message = "something went wrong " } = err;
   res.render("error.ejs", { message });
