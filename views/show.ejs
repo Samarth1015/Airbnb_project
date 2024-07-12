@@ -38,14 +38,14 @@
         <div class="d-flex mt-3">
           <form
             method="post"
-            action="http://localhost:8080/listing/<%= listing._id %>?_method=DELETE"
+            action="/listing/<%= listing._id %>?_method=DELETE"
             style="margin-right: 0.5rem"
           >
             <button class="btn btn-danger">Delete</button>
           </form>
           
           <a
-            href="http://localhost:8080/listing/<%= listing._id %>/edit"
+            href="/listing/<%= listing._id %>/edit"
             class="btn btn-dark"
             style="color: white; margin-left: 0.5rem"
             >Edit</a
@@ -58,7 +58,7 @@
         <form
           id="reviewForm"
           method="post"
-          action="http://localhost:8080/listing/<%= listing._id %>/review"
+          action="/listing/<%= listing._id %>/review"
           novalidate
           class="needs-validation"
         >
@@ -121,7 +121,7 @@
                 
              
                 <% if( review.author && user._id.toString()===review.author.toString() ){ %>
-                <form method="post" action="http://localhost:8080/listing/<%= listing._id %>/review/<%= review._id %>?_method=DELETE">
+                <form method="post" action="/listing/<%= listing._id %>/review/<%= review._id %>?_method=DELETE">
                   <button class="btn btn-danger mb-2">Delete</button>
                 </form>
                 <% } %>

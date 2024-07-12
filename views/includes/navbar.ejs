@@ -12,7 +12,7 @@
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="http://localhost:8080/">
+    <a class="navbar-brand" href="/">
       <i class="fa-solid fa-wand-sparkles"></i>
     </a>
     <button
@@ -28,7 +28,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="http://localhost:8080/listing">Explore</a>
+        <a class="nav-link" href="/listing">Explore</a>
       </div>
       <div class="navbar-nav ms-auto">
         <form class="d-flex" role="search">
@@ -49,25 +49,16 @@
         </form>
       </div>
       <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="http://localhost:8080/listing/new"
-          >Airbnb your home</a
-        >
+        <a class="nav-link" href="/listing/new">Airbnb your home</a>
         <% if(!user) { %>
         <b
-          ><a
-            class="nav-link active"
-            aria-current="page"
-            href="http://localhost:8080/signup"
+          ><a class="nav-link active" aria-current="page" href="/signup"
             >SignUp</a
           ></b
         >
-        <b>
-          <a class="nav-link" href="http://localhost:8080/login">SignIn</a></b
-        >
+        <b> <a class="nav-link" href="/login">SignIn</a></b>
         <% } %> <% if(user) { %>
-        <b
-          ><a class="nav-link" href="http://localhost:8080/logout">Logout</a></b
-        >
+        <b><a class="nav-link" href="/logout">Logout</a></b>
         <% } %>
       </div>
     </div>
