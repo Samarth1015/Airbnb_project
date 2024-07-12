@@ -95,6 +95,18 @@ app.listen(port, () => {
 // app.get("/", (req, res) => {
 //   res.send("working");
 // });
+app.get("/privacy", (req, res) => {
+  res.render("./detail/privacy.ejs");
+});
+app.get("/terms", (req, res) => {
+  res.render("./detail/terms.ejs");
+});
+app.get("/sitemap", (req, res) => {
+  res.render("./detail/sitemap.ejs");
+});
+app.get("/detail", (req, res) => {
+  res.render("./detail/detail.ejs");
+});
 app.use("/", user);
 app.use("/listing", listing);
 app.use("/listing/:id/review", review);

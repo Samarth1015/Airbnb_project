@@ -1,0 +1,61 @@
+<% layout("./layout/boilerplate.ejs") %>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      width: 80%;
+      margin: auto;
+      overflow: hidden;
+      padding: 2rem;
+      background: #fff;
+      margin-top: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    .section {
+      margin-left: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Site Map</h1>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About Us</a></li>
+      <li class="section">
+        <strong>Services</strong>
+        <ul>
+          <li><a href="/services">All Services</a></li>
+          <li><a href="/services/tours">Tours</a></li>
+          <li><a href="/services/adventures">Adventures</a></li>
+          <li><a href="/services/accommodation">Accommodation</a></li>
+        </ul>
+      </li>
+      <li><a href="/destinations">Destinations</a></li>
+      <li class="section">
+        <strong>Legal</strong>
+        <ul>
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/terms-of-service">Terms of Service</a></li>
+        </ul>
+      </li>
+      <li><a href="/contact">Contact Us</a></li>
+    </ul>
+  </div>
+</body>
