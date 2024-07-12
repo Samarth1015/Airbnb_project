@@ -1,55 +1,56 @@
 <%- layout("/layout/boilerplate.ejs") %>
 <body>
-  <form
-    action="/"
-    method="post"
-    novalidate
-    class="needs-validation offset-3 mt-3"
-  >
-    <h1
-      style="
-        color: black;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-          'Lucida Sans', Arial, sans-serif;
-      "
-    >
-      Sign-Up Credential
-    </h1>
-    <div class="form-floating mb-3">
-      <input
-        type="email"
-        class="form-control"
-        id="floatingInput"
-        placeholder="name@example.com"
-        name="email"
-        required
-      />
-      <label for="floatingInput">Email address</label>
-    </div>
-    <div class="form-floating mb-3">
-      <input
-        type="text"
-        class="form-control"
-        id="Username"
-        name="username"
-        placeholder="name@example.com"
-        required
-      />
-      <label for="Username">Username</label>
-    </div>
-    <div class="form-floating">
-      <input
-        type="password"
-        class="form-control"
-        id="floatingPassword"
-        required
-        placeholder="Password"
-        name="password"
-      />
-      <label for="floatingPassword">Password</label>
-      <div class="invalid-feedback">Write your password</div>
-    </div>
-    <br />
-    <button type="submit" class="btn btn-success">submit</button>
-  </form>
+  <div class="container">
+    <form action="/" method="post" novalidate class="needs-validation mt-3">
+      <h1
+        class="text-center mb-4"
+        style="
+          color: black;
+          font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+            'Lucida Sans', Arial, sans-serif;
+        "
+      >
+        Sign-Up Credentials
+      </h1>
+
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          class="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+          name="email"
+          required
+        />
+        <label for="floatingInput">Email address</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="Username"
+          name="username"
+          placeholder="Username"
+          required
+        />
+        <label for="Username">Username</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input
+          type="password"
+          class="form-control"
+          id="floatingPassword"
+          placeholder="Password"
+          name="password"
+          required
+        />
+        <label for="floatingPassword">Password</label>
+        <div class="invalid-feedback">Write your password</div>
+      </div>
+
+      <button type="submit" class="btn btn-success w-10">Submit</button>
+    </form>
+  </div>
 </body>
