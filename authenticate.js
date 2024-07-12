@@ -6,7 +6,7 @@ const wrapAsync = require("./wrapAsync");
 isLoggedIn = (req, res, next) => {
   if (!req.isAuthenticated()) {
     req.session.urls = req.originalUrl;
-    req.flash("error", "you must be logged in!");
+
     return res.redirect("/login");
   }
   next();
